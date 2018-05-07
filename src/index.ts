@@ -1,10 +1,13 @@
-export default class Module {
+export default class  {
+
+    public version: string = "1.0.0";
+    public name: string = 'module-template';
 
     constructor() {
         console.log('Construtor');
     }
 
-    init() {
+    public init() {
         console.log('MODULE INIT');
     }
 
@@ -12,3 +15,4 @@ export default class Module {
         console.log('MODULE STARTED')
     }
 }
+
