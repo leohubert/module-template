@@ -9,10 +9,10 @@ export default class  {
 
     public init() {
         console.log('MODULE INIT');
+        console.log('module version of ' + this.name + ' - ' + this.version);
     }
 
     start() {
         console.log('MODULE STARTED')
     }
 }
-
