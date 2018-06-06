@@ -1,7 +1,8 @@
 export default class  {
-
-    public version: string = "3.0.0";
-    public name: string = 'module-template';
+    moduleInfos: any = require('../package.json')
+    type: string = 'game';
+    requireVersion: string = '0.0.1';
+    showOnStart: boolean = true;
 
     constructor() {
         console.log('Construtor');
@@ -9,11 +10,10 @@ export default class  {
 
     public init() {
         console.log('MODULE INIT');
-        console.log("JE SUIS LA VERSION 2 DU MODULE")
-        console.log('module version of ' + this.name + ' - ' + this.version);
+        console.log('module version of ' + this.moduleInfos.name + ' - ' + this.moduleInfos.version);
     }
 
     start() {
-        console.log('MODULE STARTED')
+        console.log('MODULE STARTED');
     }
 }
