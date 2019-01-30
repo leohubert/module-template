@@ -16,7 +16,9 @@ export default class ModuleTemplate implements Module  {
     }
 
     start() {
-        console.log(this.sdk.getGamePath('arma3', ['test.exe']));
+        this.sdk.getGamePath('arma3', ['test.exe']).then((path) => {
+            console.log(path);
+        });
         console.log('MODULE STARTED');
     }
 }
