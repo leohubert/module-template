@@ -1,10 +1,12 @@
-export default class  {
+import { Sdk, Module } from 'ezgames-launcher-sdk';
+
+export default class ModuleTemplate  {
     moduleInfos: any = require('../package.json')
     type: string = 'game';
     requireVersion: string = '0.0.1';
     showOnStart: boolean = true;
 
-    constructor() {
+    constructor(private sdk: Sdk) {
         console.log('Construtor');
     }
 
