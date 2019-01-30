@@ -1,6 +1,6 @@
 import { Sdk, Module } from 'ezgames-launcher-sdk';
 
-export default class ModuleTemplate  {
+export default class ModuleTemplate implements Module  {
     moduleInfos: any = require('../package.json')
     type: string = 'game';
     requireVersion: string = '0.0.1';
