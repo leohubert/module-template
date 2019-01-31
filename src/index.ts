@@ -1,24 +1,62 @@
-import { Sdk, Module } from 'ezgames-launcher-sdk';
+import { Sdk, Module, ServerStatus, ServerDto } from 'ezgames-launcher-sdk';
 
-export default class ModuleTemplate implements Module  {
-    moduleInfos: any = require('../package.json')
-    type: string = 'game';
-    requireVersion: string = '0.0.1';
-    showOnStart: boolean = true;
+export default class ModuleTemplate implements Module {
+  type: string = 'game';
+  requireVersion: string = '0.0.1';
+  showOnStart: boolean = true;
 
-    constructor(private sdk: Sdk) {
-        console.log('Construtor');
+  constructor(private sdk: Sdk) { }
+
+  init() { }
+
+  start(server: ServerDto) {
+    this.sdk.getGamePath('arma3', ['test.exe']).then((path) => {
+      const downloader = this.sdk.createDownloader(server.id);
+      downloader.add({
+        name: 'test1.zip',
+        url: 'http://emodyz.eu/10MB.zip',
+        path: path
+      });
+      downloader.add({
+        name: 'test2.zip',
+        url: 'http://emodyz.eu/5MB.zip',
+        path: path
+      });
+      downloader.add({
+        name: 'test3.zip',
+        url: 'http://emodyz.eu/10MB.zip',
+        path: path
+      });
+      downloader.add({
+        name: 'test4.zip',
+        url: 'http://emodyz.eu/5MB.zip',
+        path: path
+      });
+      downloader.add({
+        name: 'test5.zip',
+        url: 'http://emodyz.eu/10MB.zip',
+        path: path
+      });
+      downloader.add({
+        name: 'test6.zip',
+        url: 'http://emodyz.eu/10MB.zip',
+        path: path
+      });
+      downloader.add({
+        name: 'test7.zip',
+        url: 'http://emodyz.eu/10MB.zip',
+        path: path
+      });
+      downloader.downloadAll();
+    });
+    console.log('MODULE STARTED');
+  }
+
+  getServerStatus() {
+    if (Math.random() === 1) {
+      return ServerStatus.ONLINE;
+    } else {
+      return ServerStatus.OFFLINE;
     }
-
-    public init() {
-        console.log('MODULE INIT');
-        console.log('module version of ' + this.moduleInfos.name + ' - ' + this.moduleInfos.version);
-    }
-
-    start() {
-        this.sdk.getGamePath('arma3', ['test.exe']).then((path) => {
-            console.log(path);
-        });
-        console.log('MODULE STARTED');
-    }
+  }
 }

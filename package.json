@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/MrDarkSkil/module-template#readme",
   "dependencies": {
-    "ezgames-launcher-sdk": "0.0.5-3"
+    "ezgames-launcher-sdk": "0.0.5-4"
   },
   "devDependencies": {
     "@types/node": "^10.3.1",
