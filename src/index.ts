@@ -10,7 +10,7 @@ export default class ModuleTemplate implements Module {
   init() { }
 
   start(server: ServerDto) {
-    this.sdk.getGamePath('arma3', ['test.exe']).then((path) => {
+    this.sdk.getGamePath(107410, ['test.exe']).then((path) => {
       const downloader = this.sdk.createDownloader(server.id);
       downloader.add({
         name: 'test1.zip',
